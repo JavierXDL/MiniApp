@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-
-
+    <div class="container">
 
     @if(Session::has('mensaje'))
     <div class="alert alert-success alert-dismissible" role="alert">
@@ -19,6 +17,7 @@
 
 
 <a href=" {{ url('libro/create') }} " class="btn btn-secondary " > Agregar nuevo libro</a> <br> <br>
+<a href=" {{ url('libro/{libro} ') }} " class="btn btn-secondary " > Pesta;a yuar</a> <br> <br>
 <table class="table table-light">
 
     <thead class="thead-light">
@@ -66,5 +65,6 @@
     </tbody>
 
 </table>
+{!! $spotify->links() !!}
 </div>
 @endsection

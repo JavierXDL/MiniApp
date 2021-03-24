@@ -1,4 +1,4 @@
-<h1> {{ $modo }} Libro </h1>
+<h1> {{ $modo }} Libro </h1> 
 
 @if(count($errors)>0)
 
@@ -30,13 +30,19 @@
 <!--Fin del formulario mas vistoso-->
 
 <!--Metodo del formulario mas vistoso-->
+
 <div class="form-group">
 
 <label for="DescripcionC"> Descripcion </label>
-<input type="text" class="form-control" name="DescripcionC" value=" {{ isset($pasar->DescripcionC)?$pasar->DescripcionC:old('DescripcionC') }}"  id="Descripcion">
+<!--<input  type="text" class="form-control" name="DescripcionC" value=" {{ isset($pasar->DescripcionC)?$pasar->DescripcionC:old('DescripcionC') }}"  id="Descripcion"> -->
 
-</div>
+
+    <textarea  rows="3" class="form-control"  name="DescripcionC" value=" {{ isset($pasar->DescripcionC)?$pasar->DescripcionC:old('DescripcionC') }}"  id="Descripcion"></textarea>
+
+</div> 
+
 <!--Fin del formulario mas vistoso-->
+
 
 
 <!--Metodo del formulario mas vistoso-->

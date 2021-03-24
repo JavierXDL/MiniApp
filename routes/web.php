@@ -15,9 +15,9 @@ use Illuminate\Routing\RouteGroup;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+/* Route::get('/', function () {
+    return view('libro.principal');
+}); */
 
 /*Route::get('/libro', function () {
     return view('libro.index');
@@ -25,13 +25,17 @@ Route::get('/', function () {
 
 Route::get('/libro/create',[MenuController::class,'create']); */
 
+
+
 Route::resource('libro',MenuController::class)->middleware('auth');
 Auth::routes(['reset'=>false]);
 
-Route::get('/home', [MenuController::class, 'index'])->name('home');
+Route::get('/', [MenuController::class, 'show'])->name('home');
 
 Route::middleware(['middleware' => 'auth'],function () {
-    Route::get('/', [MenuController::class, 'index'])->name('home');
+    Route::get('/', [MenuController::class, 'index'])->name('libro.index');
     
-});
+}); 
+
+Route::get('vista',[MenuController::class, 'vista'])->name('vista');
     

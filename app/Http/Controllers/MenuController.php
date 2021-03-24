@@ -18,7 +18,10 @@ class MenuController extends Controller
     {
         $datos['spotify']=Menu::paginate(4);
         return view('libro.index',$datos);
+
     }
+
+  
 
     /**
      * Show the form for creating a new resource.
@@ -43,7 +46,7 @@ class MenuController extends Controller
         $campos=[
             'Nombre'=>'required|string|max:100',
             'Autor'=>'required|string|max:100',
-            'DescripcionC'=>'required|string|max:100',
+            'DescripcionC'=>'required|string|max:1000',
             'Portada'=>'required|max:10000|mimes:jpeg,png,jpg'
             //Metodo de correo
             //'Correo'=>'required|email'
@@ -83,9 +86,31 @@ class MenuController extends Controller
      * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function show(Menu $menu)
+    public function show(/*Menu $menu*/)
     {
         //
+        //$datos['spotify']=Menu::paginate(4);
+        //return view('libro.principal',$datos);
+
+        //Metodo de busqueda
+        $search = request()->query('search');
+        if($search){
+            // Query Builder to search in three columns in table books
+            $datos['spotify'] = Menu::query()
+                ->where('Nombre', 'LIKE', "%{$search}%")
+                ->orWhere('Autor', 'LIKE', "%{$search}%")
+                ->orWhere('DescripcionC', 'LIKE', "%{$search}%")
+                ->get();
+
+            
+            return view('libro.principal',$datos);
+
+            //$books = Book::where('title', 'LIKE', "%{$search}%")->get();
+        }else{
+            $datos['spotify']=Menu::paginate(4);
+            return view('libro.principal',$datos);
+        }
+        //Fin del metodo de busqueda
     }
 
     /**
@@ -177,4 +202,12 @@ class MenuController extends Controller
        
         return redirect('libro')->with('mensaje','Libro Eliminado Correctamente');
     }
+
+    public function vista()
+    {
+        return view('libro.vista');
+
+    }
+
+    
 }
