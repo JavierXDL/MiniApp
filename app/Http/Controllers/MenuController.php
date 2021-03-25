@@ -6,6 +6,7 @@ use App\Models\Menu;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class MenuController extends Controller
 {
@@ -16,12 +17,10 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $datos['spotify']=Menu::paginate(4);
+        $datos['spotify']=Menu::paginate(5);
         return view('libro.index',$datos);
 
     }
-
-  
 
     /**
      * Show the form for creating a new resource.
@@ -47,7 +46,14 @@ class MenuController extends Controller
             'Nombre'=>'required|string|max:100',
             'Autor'=>'required|string|max:100',
             'DescripcionC'=>'required|string|max:1000',
-            'Portada'=>'required|max:10000|mimes:jpeg,png,jpg'
+            'Portada'=>'required|max:10000|mimes:jpeg,png,jpg',
+            'description'=>'required|max:1000',
+            'Editorial'=>'required|string|max:100',
+            'ISBN'=>'required|string|max:100',
+            'Npaginas'=>'required|string|max:100',
+            'Edicion'=>'required|string|max:100',
+            'Pais'=>'required|string|max:100',
+            'Anio'=>'required|string|max:100'
             //Metodo de correo
             //'Correo'=>'required|email'
         ];
@@ -100,6 +106,13 @@ class MenuController extends Controller
                 ->where('Nombre', 'LIKE', "%{$search}%")
                 ->orWhere('Autor', 'LIKE', "%{$search}%")
                 ->orWhere('DescripcionC', 'LIKE', "%{$search}%")
+                ->orWhere('description', 'LIKE', "%{$search}%")
+                ->orWhere('ISBN', 'LIKE', "%{$search}%")
+                ->orWhere('Editorial', 'LIKE', "%{$search}%")
+                ->orWhere('Npaginas', 'LIKE', "%{$search}%")
+                ->orWhere('Edicion', 'LIKE', "%{$search}%")
+                ->orWhere('Pais', 'LIKE', "%{$search}%")
+                ->orWhere('Anio', 'LIKE', "%{$search}%")
                 ->get();
 
             
@@ -107,7 +120,7 @@ class MenuController extends Controller
 
             //$books = Book::where('title', 'LIKE', "%{$search}%")->get();
         }else{
-            $datos['spotify']=Menu::paginate(4);
+            $datos['spotify']=Menu::paginate(8);
             return view('libro.principal',$datos);
         }
         //Fin del metodo de busqueda
@@ -140,7 +153,16 @@ class MenuController extends Controller
         $campos=[
             'Nombre'=>'required|string|max:100',
             'Autor'=>'required|string|max:100',
-            'DescripcionC'=>'required|string|max:100',
+            'DescripcionC'=>'required|string|max:1000',
+            'Portada'=>'required|max:10000|mimes:jpeg,png,jpg',
+            'description'=>'required|max:1000',
+            'Editorial'=>'required|string|max:100',
+            'ISBN'=>'required|string|max:100',
+            'Npaginas'=>'required|string|max:100',
+            'Edicion'=>'required|string|max:100',
+            'Pais'=>'required|string|max:100',
+            'Anio'=>'required|string|max:100'
+            
             
             //Metodo de correo
             //'Correo'=>'required|email'
@@ -205,7 +227,9 @@ class MenuController extends Controller
 
     public function vista()
     {
-        return view('libro.vista');
+
+        $datos['spotify']=Menu::paginate(1);
+        return view('libro.vista',$datos);
 
     }
 

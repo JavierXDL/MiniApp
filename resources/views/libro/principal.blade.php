@@ -3,7 +3,7 @@
 
 
 <!-- BUSCADOR -->
-<div class="col-sm-5 col-12  inline ">
+<div class="col-sm-3 col-12  inline ">
 
 <form class="d-flex" action="{{ route('home') }}" method="GET" >
                             
@@ -11,6 +11,7 @@
          <button class="btn btn-dark" type="submit">Buscar</button>
 </form>
 </div>
+<!--Fin del buscador-->
 
 
 
@@ -26,7 +27,8 @@
   <div class="card-body">
     <h5 class="card-title"> {{ $pasar->Nombre }}</h5>
     <p class="card-text">{{ $pasar->Autor }}</p>
-    <a href="{{route ('vista') }}" class="btn btn-primary">Go somewhere</a>
+    <p class="card-text">{{ $pasar->DescripcionC }}</p>
+    <a href="{{route ('vista') }}" class="btn btn-primary"> Ver descripcion Completa</a>
   </div>
 </div>
 </div> <!--Fin del col-->

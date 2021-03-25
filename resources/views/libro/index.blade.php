@@ -5,7 +5,7 @@
     @if(Session::has('mensaje'))
     <div class="alert alert-success alert-dismissible" role="alert">
 {{ Session::get('mensaje') }}
-<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<button type="button" class="close " data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
 </button>
 
@@ -13,11 +13,7 @@
 
 @endif
 
-
-
-
-<a href=" {{ url('libro/create') }} " class="btn btn-secondary " > Agregar nuevo libro</a> <br> <br>
-<a href=" {{ url('libro/{libro} ') }} " class="btn btn-secondary " > Pesta;a yuar</a> <br> <br>
+<a href=" {{ url('/libro/create') }} "class="btn btn-secondary" > Agregar nuevo libro</a> <br> <br>
 <table class="table table-light">
 
     <thead class="thead-light">
@@ -28,6 +24,7 @@
             <th>Autor</th>
             <th>DescripcionC</th>
             <th>Acciones</th>
+
         </tr>
     </thead>
 
@@ -44,21 +41,16 @@
             <td> {{ $pasar->Autor }} </td>
             <td> {{ $pasar->DescripcionC }} </td>
             <td> 
-            <a href=" {{ url('/libro/'.$pasar->id.'/edit') }} " class="btn btn-warning">
+            <a href=" {{ url('/libro/'.$pasar->id.'/edit') }} " class="btn btn-warning btn btn-primary btn-sm">
             Editar 
             </a>
-
-            |
 
             <form action=" {{ url('/libro/'.$pasar->id) }} " class="d-inline" method="post">
                 @csrf
                 {{ method_field('Delete')}}
-            <input  class="btn btn-danger" type="submit" onclick="return confirm('Deseas borrarlo de verdad')" value="Borrar">
+            <input  class="btn btn-danger  btn btn-primary btn-sm" type="submit" onclick="return confirm('Deseas borrarlo de verdad')" value="Borrar">
             
             </form>
-            
-            
-            
             </td>
         </tr>
         @endforeach

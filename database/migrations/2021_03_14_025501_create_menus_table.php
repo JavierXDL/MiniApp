@@ -19,6 +19,13 @@ class CreateMenusTable extends Migration
             $table->string('Autor');
             $table->string('DescripcionC');
             $table->string('Portada');
+            $table->text('description');
+            $table->string('ISBN');
+            $table->string('Editorial');
+            $table->string('Npaginas');
+            $table->string('Edicion');
+            $table->string('Pais');
+            $table->string('Anio');
             $table->timestamps();
         });
     }

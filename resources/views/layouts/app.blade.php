@@ -4,7 +4,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -22,7 +22,8 @@
 </head>
 <body>
     <div  id="app">
-        <nav  class=" navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav  class=" navbar navbar-expand-md navbar-light bg-white shadow-sm"> 
+        Liberia Javier
             <div  class="container">
                 <a class="navbar-brand" href="{{ url('/') }}"> 
                    <!-- {{ config('app.name', 'Laravel') }} -->
@@ -37,7 +38,7 @@
                     <li class="nav-item"> 
                    <a class="nav-link " href="{{ route('libro.index') }}">{{ __('Administrar') }}</a>
                     </li>
-
+                    
                     </ul>
 
                     <!-- Right Side Of Navbar -->
