@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImpController;
 use App\Http\Controllers\MenuController;
 use Illuminate\Routing\RouteGroup;
 
@@ -15,9 +16,9 @@ use Illuminate\Routing\RouteGroup;
 |
 */
 
-/* Route::get('/', function () {
-    return view('libro.principal');
-}); */
+ Route::get('/', function () {
+    return view('auth.login');
+});  
 
 /*Route::get('/libro', function () {
     return view('libro.index');
@@ -37,5 +38,8 @@ Route::middleware(['middleware' => 'auth'],function () {
     
 }); 
 
-Route::get('vista',[MenuController::class, 'vista'])->name('vista');
+Route::get('vista/{pasar}', [MenuController::class, 'vista'])->name('vista');
+
+Route::get('/get-all-imprimir', [ImpController::class, 'impresion']);
+Route::get('/dowload-pdf',[ImpController::class,'dowloadPDF'])->name('impresion');
     

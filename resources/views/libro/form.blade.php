@@ -108,13 +108,13 @@
 
 <!--Metodo del formulario mas vistoso-->
 <div class="form-group">
-<label for="Anio">Anio </label>
+<label for="Anio">Año </label>
 <input type="text"  class="form-control" name="Anio" value=" {{ isset($pasar->Anio)?$pasar->Anio:old('Anio') }}" id="Anio">
 
 </div>
 <!--Fin del formulario mas vistoso-->
 
 
-<input class="btn btn-success" type="submit" value=" {{ $modo }} datos"> 
+<input class="btn btn-success" type="submit" value=" {{ $modo }} Agregado"> 
 
-<a class="btn btn-primary" href="  {{ url('libro/') }} " > Regresar </a>
+<a class="btn btn-primary" href="{{ url('libro/') }} ">Regresar </a>

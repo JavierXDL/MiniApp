@@ -22,7 +22,7 @@
             <th>Portada</th>
             <th>Nombre</th>
             <th>Autor</th>
-            <th>DescripcionC</th>
+            <th>Descripcion Corta</th>
             <th>Acciones</th>
 
         </tr>
@@ -41,14 +41,14 @@
             <td> {{ $pasar->Autor }} </td>
             <td> {{ $pasar->DescripcionC }} </td>
             <td> 
-            <a href=" {{ url('/libro/'.$pasar->id.'/edit') }} " class="btn btn-warning btn btn-primary btn-sm">
+            <a href=" {{ url('/libro/'.$pasar->id.'/edit') }} " class="btn btn-warning btn btn-primary  ">
             Editar 
             </a>
 
             <form action=" {{ url('/libro/'.$pasar->id) }} " class="d-inline" method="post">
                 @csrf
                 {{ method_field('Delete')}}
-            <input  class="btn btn-danger  btn btn-primary btn-sm" type="submit" onclick="return confirm('Deseas borrarlo de verdad')" value="Borrar">
+            <input  class="btn btn-danger  btn btn-primary" type="submit" onclick="return confirm('Deseas borrarlo')" value="Borrar">
             
             </form>
             </td>

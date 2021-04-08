@@ -6,18 +6,19 @@
 <div class="col-sm-3 col-12  inline ">
 
 <form class="d-flex" action="{{ route('home') }}" method="GET" >
-                            
-    <input class="form-control me-2"  type="text" name="search" id="search" value="{{ request()->query('search') }}" placeholder="Ingresa un Autor, Titulo o Descripcion" aria-label="Search">
-         <button class="btn btn-dark" type="submit">Buscar</button>
-</form>
-</div>
-<!--Fin del buscador-->
+<input type="search" class="form-control rounded" name="search" id="search" value="{{ request()->query('search') }}"  placeholder="Buscar informacion de un libro" aria-label="Search"
+      aria-describedby="search-addon" />
+    <button type="button" class="btn btn-outline-primary" type="submit">Buscar</button>
+    <!--Fin del buscador-->
 
+</form>
+</div> <br>
+<a href=" {{ url('dowload-pdf') }} "class="btn btn-secondary" > Descargar reporte de libros</a>
 
 
 <div class="container">
-<div class="row">
 
+<div class="row">
 
 @foreach( $spotify as $pasar)
 
@@ -28,7 +29,8 @@
     <h5 class="card-title"> {{ $pasar->Nombre }}</h5>
     <p class="card-text">{{ $pasar->Autor }}</p>
     <p class="card-text">{{ $pasar->DescripcionC }}</p>
-    <a href="{{route ('vista') }}" class="btn btn-primary"> Ver descripcion Completa</a>
+    <a href="{{ route('vista', $pasar->id) }}" class="btn btn-primary"> Ver descripcion Completa</a>
+    
   </div>
 </div>
 </div> <!--Fin del col-->
@@ -37,6 +39,12 @@
 
 
 </div> <!--Fin del row-->
+
+
 </div> <!--Fin del container-->
+
+
+
+
 
 @endsection
