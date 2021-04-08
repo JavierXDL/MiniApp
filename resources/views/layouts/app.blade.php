@@ -21,39 +21,63 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+
+
+
     <div  id="app">
-        <nav  class=" navbar navbar-expand-md navbar-light bg-white shadow-sm"> 
-        Liberia Javier
+        <nav class="navbar navbar-expand-md navbar-blue bg-dark"> 
+            
             <div  class="container">
-                <a class="navbar-brand" href="{{ url('/') }}"> 
-                   <!-- {{ config('app.name', 'Laravel') }} -->
-                </a>
+            <!-- <a class="nav-link " href="{{ route('libro.index') }}">{{ __('Libreria Jsvie') }}</a> -->
+            <!-- <img src="{{ asset('storage/logo.png') }}" width="100px" height="50px" alt=""> -->
+            <a class="nav-link " href="{{ url('/') }}"> Jhanck</a>
+
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+                <div  class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item"> 
-                   <a class="nav-link " href="{{ route('libro.index') }}">{{ __('Administrar') }}</a>
+                   <a class="nav-link " href="{{ route('libro.index') }}">{{ __('Administrar') }}
+                   </a>
                     </li>
-                    
-                    </ul>
+                   
 
+                    <!--Prueba-->
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Opciones
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ url('dowload-pdf') }}">Descargar en PDF los libros</a>
+                        </div>
+                    </li>  -->
+
+                
+                <!--Fin de prueba-->
+
+            
+                    </ul>
+                    
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <!-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> -->
+                                     <!-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>  -->
                                 </li>
                             @endif
                             
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <!-- <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> -->
+                                     <!-- <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>  -->
                                 </li>
                             @endif
                         @else

@@ -106,13 +106,6 @@ class MenuController extends Controller
                 ->where('Nombre', 'LIKE', "%{$search}%")
                 ->orWhere('Autor', 'LIKE', "%{$search}%")
                 ->orWhere('DescripcionC', 'LIKE', "%{$search}%")
-                ->orWhere('description', 'LIKE', "%{$search}%")
-                ->orWhere('ISBN', 'LIKE', "%{$search}%")
-                ->orWhere('Editorial', 'LIKE', "%{$search}%")
-                ->orWhere('Npaginas', 'LIKE', "%{$search}%")
-                ->orWhere('Edicion', 'LIKE', "%{$search}%")
-                ->orWhere('Pais', 'LIKE', "%{$search}%")
-                ->orWhere('Anio', 'LIKE', "%{$search}%")
                 ->get();
 
             
@@ -182,7 +175,7 @@ class MenuController extends Controller
         ];
 
         if($request->hasFile('Portada')){
-           $campos=[ 'Portada'=>'required|max:10000|mimes:jpeg,png,jpg']; 
+           $campos=[ 'Portada'=>'required|max:1000|mimes:jpeg,png,jpg']; 
            $mensaje=['Portada.required'=>'la foto requerida'];
         }
 
@@ -225,13 +218,15 @@ class MenuController extends Controller
         return redirect('libro')->with('mensaje','Libro Eliminado Correctamente');
     }
 
-    public function vista()
+    public function vista($id)
     {
 
-        $datos['spotify']=Menu::paginate(1);
-        return view('libro.vista',$datos);
+        //$datos['spotify']=Menu::paginate(5);
+        $pasar=Menu::all()->where('id', $id)->first();
+        return view('libro.vista')->with('pasar',$pasar);
 
     }
 
-    
+
+ 
 }
